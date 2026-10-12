@@ -9,8 +9,8 @@ stages:
       size: 322
     - path: src/preprocess.py
       hash: md5
-      md5: b69850bc9a52a4c3616acda7d17018e5
-      size: 3243
+      md5: bf7a8ca65d0f42843d64d5f9d1f4e505
+      size: 3520
     outs:
     - path: data/green_tripdata_2024-01.parquet
       hash: md5
@@ -25,8 +25,8 @@ stages:
       size: 1362284
     - path: src/preprocess.py
       hash: md5
-      md5: b69850bc9a52a4c3616acda7d17018e5
-      size: 3243
+      md5: bf7a8ca65d0f42843d64d5f9d1f4e505
+      size: 3520
     - path: src/train.py
       hash: md5
       md5: 2c78e7f05a558bdfd8ee38ea355f04b3
@@ -42,7 +42,7 @@ stages:
       size: 14514
     - path: models/model_metadata.json
       hash: md5
-      md5: 155ac91d39986bec4cd943078343a83f
+      md5: ddb859c3366cb56e245062d5bca4bf2e
       size: 231
     - path: reports/train_metrics.json
       hash: md5

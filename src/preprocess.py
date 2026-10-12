@@ -71,11 +71,19 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     df = df[(df[TARGET] >= 1) & (df[TARGET] <= 60)]
     df = df[df["trip_distance"].between(0.1, 100)]
 
+    return prepare_features(df).join(df[TARGET])
+
+
+def prepare_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Select the model features and give them the types the model expects.
+
+    Used for training *and* by the API, so both treat the inputs identically.
+    """
+    df = df[FEATURES].copy()
     # Location IDs are categories, not numbers (zone 200 is not "more" than zone 100).
     # As strings, DictVectorizer one-hot encodes them.
     df[CATEGORICAL_FEATURES] = df[CATEGORICAL_FEATURES].astype(str)
-
-    return df[FEATURES + [TARGET]]
+    return df
 
 
 def to_records(X: pd.DataFrame) -> list[dict]:
